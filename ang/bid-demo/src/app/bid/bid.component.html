@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="wrapper row">
+    <div class="col-12 text-center">
+      <h3>Name your Name</h3>
+    </div>
+    <div class="col-12 text-center row" style="padding: 50px 0px;">
+      <div class="col-8">
+        <ul class="list-group">
+          <li class="list-group-item col-12" style="display: flex;" *ngFor="let data of names">
+            <div class="col-6">
+              {{data.name}}
+            </div>
+            <div class="col-2"><button class="btn btn-warning" (click)="edit(data)">edit</button></div>
+            <div class="col-2"><button class="btn btn-danger" (click)="delete(data)">delete</button></div>
+          </li>
+        </ul>
+      </div>
+      <div class="col-4">
+        <div class="input-group mb-3 col-12">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1">Name</span>
+          </div>
+          <input type="text" class="form-control" placeholder="Username" aria-label="Username"
+                 aria-describedby="basic-addon1" #Uname="ngModel" name="Uname"  [(ngModel)]="name.name">
+        </div>
+        <button class="btn btn-success" *ngIf="!flag" (click)="saveName()">Save</button>
+        <button class="btn btn-success" *ngIf="flag" (click)="update()">Update</button>
+      </div>
+    </div>
+  </div>
+</div>
